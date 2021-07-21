@@ -1,0 +1,3 @@
+recursive-include src/AAFragpy *.py
+graft src/AAFragpy/Tables
+exclude src/AAFragpy/Kelner2006.py
