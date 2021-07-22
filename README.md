@@ -13,13 +13,11 @@ Examples of package usage are given in the Jupiter Notebook.
 You can also get started quickly using [Binder](http://mybinder.org) to run the tutorials in
 your web browser within a remote server:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/skoldobskiy/AAFragpy/master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/skoldobskiy/AAFragpy/master?filepath=Tutorials)
 
 Comments are welcome!
 
 If you are using AAFragpy, please cite it as:
-
-another TEST
 
 TBA
 
