@@ -4,5 +4,5 @@ numpy
 
 # for tutorial #
 ################
-matplotlib.pyplot
+matplotlib
 seaborn
