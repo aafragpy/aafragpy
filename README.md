@@ -8,9 +8,13 @@ The package allows to calculate the spectrum of products knowing the spectra of 
 
 Additional consideration of low-energy nuclear interactions is also possible using Kamae et al. 2006 [2] and Kafexhiu et al. 2014 [3] codes.
 
-Examples of package usage are given in the Jupiter Notebook.
+The package is easy to install using pip:
 
-You can also get started quickly using [Binder](http://mybinder.org) to run the tutorials in
+`pip install -i https://test.pypi.org/simple/ AAFragpy-serkol`
+
+Example of the package usage are given in the Jupiter Notebook.
+
+You can also get started quickly using [Binder](http://mybinder.org) to run the tutorial in
 your web browser within a remote server:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/skoldobskiy/AAFragpy/master?filepath=Tutorials)
