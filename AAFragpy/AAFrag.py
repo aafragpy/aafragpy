@@ -5,7 +5,7 @@ Created on Fri Nov 27 17:44:49 2020
 
 @author: sergeykoldobskiy
 """
-__version__ = '0.8.36'
+__version__ = '0.8.41'
 __author__ = 'Sergey Koldobskiy'
 
 import numpy as np
