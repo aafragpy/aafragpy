@@ -10,17 +10,16 @@ Additional consideration of low-energy nuclear interactions is also possible usi
 
 Examples of package usage are given in the Jupiter Notebook.
 
-You can also get started quickly using `Binder <http://mybinder.org>`_ to run the tutorials in
+You can also get started quickly using [Binder](http://mybinder.org) to run the tutorials in
 your web browser within a remote server:
 
-.. image:: http://mybinder.org/badge.svg
-    :target: https://mybinder.org/v2/gh/astropy/astropy-tutorials/main?filepath=tutorials/notebooks
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/skoldobskiy/AAFragpy/master)
 
 Comments are welcome!
 
 If you are using AAFragpy, please cite it as:
 
-TEST
+another TEST
 
 TBA
 
