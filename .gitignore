@@ -29,6 +29,10 @@
 **/Icon
 Thumbs.db
 
+# Notebook checkpoints #
+########################
+**/.ipynb_checkpoints/
+
 # Build directories #
 #####################
 build/

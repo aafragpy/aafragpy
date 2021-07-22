@@ -1,1 +1,8 @@
+# for AAFragpy #
+################
 numpy
+
+# for tutorial #
+################
+matplotlib.pyplot
+seaborn
