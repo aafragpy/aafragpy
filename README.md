@@ -1,4 +1,4 @@
-# AAFragpy
+# aafragpy
 
 Python implementation of secondary particle production model AAFrag (based on QGSJEt-II-04m). The code is modified after the original AAFrag code written on Fortran [1].
 
@@ -8,24 +8,29 @@ The package allows to calculate the spectrum of products knowing the spectra of 
 
 Additional consideration of low-energy nuclear interactions is also possible using Kamae et al. 2006 [2] and Kafexhiu et al. 2014 [3] codes.
 
+#### Installation
+
 The package is easy to install using pip:
 
-`pip install -i https://test.pypi.org/simple/ AAFragpy-serkol`
+`pip install -i https://test.pypi.org/simple/ aafragpy-serkol`
 
-Example of the package usage are given in the Jupiter Notebook.
+#### Tutorial
+
+Tutorial of package usage is given in the Jupiter Notebook.
 
 You can also get started quickly using [Binder](http://mybinder.org) to run the tutorial in
 your web browser within a remote server:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/skoldobskiy/AAFragpy/HEAD?urlpath=https%3A%2F%2Fgithub.com%2Fskoldobskiy%2FAAFragpy%2Fblob%2Fmaster%2FTutorials%2FAAFragpy_tutorial.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/skoldobskiy/aafragpy/HEAD?filepath=aafragpy_tutorial.ipynb)
+
 
 Comments are welcome!
 
-If you are using AAFragpy, please cite it as:
+If you are using `aafragpy`, please cite us as:
 
 TBA
 
-References:
+#### References:
 
 
 [1] M. Kachelrieß, I. V. Moskalenko, and S. Ostapchenko, “AAfrag: Interpolation routines for Monte Carlo results on secondary production in proton-proton, proton-nucleus and nucleus-nucleus interactions,” Comput. Phys. Commun., vol. 245, p. 106846, 2019. <https://doi.org/10.1016/j.cpc.2019.08.001>

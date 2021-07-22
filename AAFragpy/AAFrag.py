@@ -5,7 +5,7 @@ Created on Fri Nov 27 17:44:49 2020
 
 @author: sergeykoldobskiy
 """
-__version__ = '0.8.42'
+__version__ = '0.8.44'
 __author__ = 'Sergey Koldobskiy'
 
 import numpy as np
@@ -228,7 +228,7 @@ def open_data_files(secondary, primary_target):
 ###############################################################################
 
 
-def get_single_cs_value(secondary, primary_target, E_primary,
+def get_cs_value(secondary, primary_target, E_primary,
                         T_secondaries=None):
     """
     Return single differential cross-section value.
