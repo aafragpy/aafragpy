@@ -23,14 +23,14 @@
 
 # OS generated files #
 ######################
-.DS_Store
-.DS_Store?
-Icon?
-Icon
+**/.DS_Store
+**/.DS_Store?
+**/Icon?
+**/Icon
 Thumbs.db
 
 # Build directories #
 #####################
 build/
 dist/
-AAFragpy_serkol.egg-info/
+**/AAFragpy_serkol.egg-info/
