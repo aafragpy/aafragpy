@@ -1,2 +1,2 @@
-recursive-include AAFragpy *.py
-graft AAFragpy/Tables
+recursive-include aafragpy *.py
+graft aafragpy/Tables
