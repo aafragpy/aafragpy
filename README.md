@@ -29,7 +29,7 @@ Comments are welcome!
 
 ---
 
-If you are using `aafragpy`, please cite us as:
+If you are using aafragpy, please cite us as:
 
 TBA
 
