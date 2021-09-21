@@ -21,7 +21,7 @@ Tutorial of package usage is given in the Jupiter Notebook.
 You can also get started quickly using [Binder](http://mybinder.org) to run the tutorial in
 your web browser within a remote server:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/skoldobskiy/aafragpy/HEAD?filepath=aafragpy_tutorial.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aafragpy/aafragpy/HEAD?filepath=aafragpy_tutorial.ipynb)
 
 ---
 
