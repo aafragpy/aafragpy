@@ -37,4 +37,5 @@ Thumbs.db
 #####################
 build/
 dist/
+**/aafragpy.egg-info/
 **/AAFragpy_serkol.egg-info/
