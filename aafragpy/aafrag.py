@@ -5,7 +5,7 @@ Created on Fri Nov 27 17:44:49 2020
 
 @author: sergeykoldobskiy
 """
-__version__ = '1.0'
+__version__ = '1.01'
 __author__ = 'Sergey Koldobskiy'
 
 import numpy as np
@@ -316,10 +316,10 @@ def get_cross_section(secondary, primary_target, E_primaries=None,
     interaction.
         Allowed inputs are: gam, posi, el, nu_e, anu_e, mu_mu, amu_mu, nu_all
     primary_target (str): Primary/target combination.
-    E_primaries (list or tuple or numpy.ndarray): optional
+    E_primaries (int or float or list or tuple or numpy.ndarray): optional
         Vector of the primary particle energy (in GeV) of the size M.
         The default values are taken from the tables.
-    E_secondaries (list or tuple or numpy.ndarray): optiona
+    E_secondaries (int or float or list or tuple or numpy.ndarray): optiona
         Vector of the secondary particle energy (in GeV) of the size N.
         The default values are taken from the tables.
 
@@ -458,9 +458,9 @@ def get_cross_section_Kafexhiu2014(E_primaries, E_secondaries):
     Works good in low energies,
         but should be substituted by newer codes in high energies.
     ----------
-    T_primaries (int or float or list or tuple or numpy.ndarray): 
+    E_primaries (int or float or list or tuple or numpy.ndarray): 
         Vector of the primary proton energy (in GeV) of the size M.
-    T_secondaries (int or float or list or tuple or numpy.ndarray):
+    E_secondaries (int or float or list or tuple or numpy.ndarray):
         Vector of the gamma energy (in GeV) of the size N.
 
     Returns
