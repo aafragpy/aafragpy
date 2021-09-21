@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: aafragpy
+Version: 1.0
+Summary: Python package for calculation of secondary particle production in nuclear interactions
+Home-page: https://github.com/aafragpy/aafragpy
+Author: Sergey Koldobskiy et al.
+Author-email: sakoldobskiy@mephi.ru
+License: MIT
+Project-URL: Bug Tracker, https://github.com/aafragpy/aafragpy/issues
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # aafragpy
 
 Python implementation of secondary particle production model AAFrag (based on QGSJEt-II-04m). The code is modified after the original AAFrag code written on Fortran [1].
@@ -12,7 +29,7 @@ Additional consideration of low-energy nuclear interactions is also possible usi
 
 The package is easy to install using pip:
 
-`pip install aafragpy`
+`pip install -i https://test.pypi.org/simple/ aafragpy-serkol`
 
 #### Tutorial
 
@@ -21,7 +38,7 @@ Tutorial of package usage is given in the Jupiter Notebook.
 You can also get started quickly using [Binder](http://mybinder.org) to run the tutorial in
 your web browser within a remote server:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aafragpy/aafragpy/HEAD?filepath=aafragpy_tutorial.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/skoldobskiy/aafragpy/HEAD?filepath=aafragpy_tutorial.ipynb)
 
 ---
 
@@ -42,3 +59,5 @@ TBA
 [2] T. Kamae, N. Karlsson, T. Mizuno, T. Abe, and T. Koi, “Parameterization of γ, e+-, and Neutrino Spectra Produced by p-p Interaction in Astronomical Environments,” Astrophys. J., vol. 647, no. 1, pp. 692–708, Aug. 2006. <https://doi.org/10.1086/505189>  
 
 [3] E. Kafexhiu, F. Aharonian, A. M. Taylor, and G. S. Vila, “Parametrization of gamma-ray production cross-sections for pp interactions in a broad proton energy range from the kinematic threshold to PeV energies,” Phys. Rev. D - Part. Fields, Gravit. Cosmol., vol. 90, no. 12, pp. 1–19, Jun. 2014. <https://doi.org/10.1103/PhysRevD.90.123014>  
+
+
