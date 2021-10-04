@@ -31,7 +31,7 @@ Comments are welcome!
 
 If you are using aafragpy, please cite us as:
 
-TBA
+S. Koldobskiy, M. Kachelrieß, A. Lskavyan, A. Neronov, S. Ostapchenko and D. V. Semikoz, "Energy spectra of secondaries in proton-proton interactions" (2021), [arXiv:2110.00496](https://arxiv.org/abs/2110.00496)
 
 ---
 
