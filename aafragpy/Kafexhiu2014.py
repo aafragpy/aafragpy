@@ -10,7 +10,7 @@ import numpy as np
 
 T_p_th = 0.2797
 m_pi = 0.134977
-m_p = 0.9385
+m_p = 0.938272
 
 def s_total_inelastic (T_p):
     '''
@@ -210,49 +210,4 @@ def F_gamma_Kafexhiu2014 (T_p,E_g,model):
         return A_max(T_p) * F(T_p,E_g)   
     else:
         return 0
-    
-#EXAMPLE
-# import pandas as pd
-# AAFrag_data = pd.read_csv('../../spec_gam_10000000_GeV.txt',header=None,delim_whitespace=True)
-# import matplotlib.pyplot as plt
-
-# #take the same energy as for AAFrag
-# E_p = 10000000
-# #make AA energy binning for gammas
-# log10_m = np.log10(E_p)
-# # make your own binning for gammas
-# # E_g = np.logspace(-2,log10_m,1000)
-
-# E_g = AAFrag_data[0]
-# dsdE_g_GEANT = F_gamma_Kafexhui2014(E_p,E_g,'GEANT')
-# dsdE_g_PYTHIA = F_gamma_Kafexhui2014(E_p,E_g,'PYTHIA')
-# dsdE_g_SIBYLL = F_gamma_Kafexhui2014(E_p,E_g,'SIBYLL')
-# dsdE_g_QGSJET = F_gamma_Kafexhui2014(E_p,E_g,'QGSJET')
-# dsdE_g_QGSJETII = F_gamma_Kafexhui2014(E_p,E_g,'QGSJET-II-04m')
-# fig, (ax1, ax2) = plt.subplots(nrows=2,figsize=(7,7))
-# ax1.set_title('$E_p=$'+str(E_p)+' GeV')
-# ax1.loglog(E_g,dsdE_g_GEANT,label='GEANT')
-# ax1.loglog(E_g,dsdE_g_PYTHIA,label='PYTHIA')
-# ax1.loglog(E_g,dsdE_g_SIBYLL,label='SIBYLL')
-# ax1.loglog(E_g,dsdE_g_QGSJET,label='QGSJET')
-# ax1.loglog(E_g,dsdE_g_QGSJETII,label='GSJET-II-04m')
-# dsdE_g_AAfrag = AAFrag_data[1]/AAFrag_data[0]/AAFrag_data[0]
-# ax1.loglog(AAFrag_data[0],dsdE_g_AAfrag,label = 'AAFrag',color='black',linestyle=':')
-# ax1.legend(prop={'size': 6})
-# #plt.xlim(1e2,1e4)
-# ax1.set_xlabel('$E_\gamma$')
-# ax1.set_ylabel('$d\sigma/dE_\gamma$')
-# ax1.set_ylim(1e-10,1e3)
-# ax2.axhline(y=1, label = 'AAFrag',linestyle=':',color='black')
-# ax2.semilogx(E_g[:-1],dsdE_g_GEANT[:-1]/dsdE_g_AAfrag[:-1],label='GEANT/AAFrag',alpha=0.5)
-# ax2.semilogx(E_g[:-1],dsdE_g_PYTHIA[:-1]/dsdE_g_AAfrag[:-1],label='PYTHIA/AAFrag',alpha=0.5)
-# ax2.semilogx(E_g[:-1],dsdE_g_SIBYLL[:-1]/dsdE_g_AAfrag[:-1],label='SIBYLL/AAFrag',alpha=0.5)
-# ax2.semilogx(E_g[:-1],dsdE_g_QGSJET[:-1]/dsdE_g_AAfrag[:-1],label='QGSJET/AAFrag',alpha=0.5)
-# ax2.semilogx(E_g[:-1],dsdE_g_QGSJETII[:-1]/dsdE_g_AAfrag[:-1],label='QGSJET-II-04m/AAFrag',alpha=0.5)
-# ax2.set_xlabel('$E_\gamma$')
-# ax2.set_ylabel('ratio to AAFrag')
-# ax2.set_ylim(0,2)
-# ax2.legend(prop={'size': 6})
-# plt.savefig('gamma_prod_comparison_'+str(E_p)+'_GeV.pdf',bbox_inches='tight')
-
     

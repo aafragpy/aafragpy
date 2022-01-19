@@ -31,14 +31,13 @@ Comments are welcome!
 
 If you are using aafragpy, please cite us as:
 
-S. Koldobskiy, M. Kachelrieß, A. Lskavyan, A. Neronov, S. Ostapchenko and D. V. Semikoz, "Energy spectra of secondaries in proton-proton interactions" (2021), [arXiv:2110.00496](https://arxiv.org/abs/2110.00496)
-
+S. Koldobskiy, M. Kachelrieß, A. Lskavyan, A. Neronov, S. Ostapchenko, and D. V. Semikoz, “Energy spectra of secondaries in proton-proton interactions,” [Phys. Rev. D, vol. 104, no. 12, p. 123027, 2021](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.104.123027), [arXiv:2110.00496](https://arxiv.org/abs/2110.00496).
 ---
 
 #### References:
 
-[1] M. Kachelrieß, I. V. Moskalenko, and S. Ostapchenko, “AAfrag: Interpolation routines for Monte Carlo results on secondary production in proton-proton, proton-nucleus and nucleus-nucleus interactions,” Comput. Phys. Commun., vol. 245, p. 106846, 2019. <https://doi.org/10.1016/j.cpc.2019.08.001>  
+[1] M. Kachelrieß, I. V. Moskalenko, and S. Ostapchenko, “AAfrag: Interpolation routines for Monte Carlo results on secondary production in proton-proton, proton-nucleus and nucleus-nucleus interactions,” [Comput. Phys. Commun., vol. 245, p. 106846, 2019](https://doi.org/10.1016/j.cpc.2019.08.001).
 
-[2] T. Kamae, N. Karlsson, T. Mizuno, T. Abe, and T. Koi, “Parameterization of γ, e+-, and Neutrino Spectra Produced by p-p Interaction in Astronomical Environments,” Astrophys. J., vol. 647, no. 1, pp. 692–708, Aug. 2006. <https://doi.org/10.1086/505189>  
+[2] T. Kamae, N. Karlsson, T. Mizuno, T. Abe, and T. Koi, “Parameterization of γ, e+-, and Neutrino Spectra Produced by p-p Interaction in Astronomical Environments,” [Astrophys. J., vol. 647, no. 1, pp. 692–708, 2006](https://doi.org/10.1086/505189).
 
-[3] E. Kafexhiu, F. Aharonian, A. M. Taylor, and G. S. Vila, “Parametrization of gamma-ray production cross-sections for pp interactions in a broad proton energy range from the kinematic threshold to PeV energies,” Phys. Rev. D - Part. Fields, Gravit. Cosmol., vol. 90, no. 12, pp. 1–19, Jun. 2014. <https://doi.org/10.1103/PhysRevD.90.123014>  
+[3] E. Kafexhiu, F. Aharonian, A. M. Taylor, and G. S. Vila, “Parametrization of gamma-ray production cross-sections for pp interactions in a broad proton energy range from the kinematic threshold to PeV energies,” [Phys. Rev. D, vol. 90, no. 12, pp. 1–19, 2014](https://doi.org/10.1103/PhysRevD.90.123014).

@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore", message="divide by zero encountered in")
 warnings.filterwarnings("ignore", message="invalid value encountered in")
 warnings.filterwarnings("ignore", message='overflow encountered in exp')
 
-m_p = 0.9385
+m_p = 0.938272
 
 ###############################################################################
 ###############################################################################
