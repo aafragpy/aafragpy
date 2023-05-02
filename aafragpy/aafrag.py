@@ -285,7 +285,7 @@ def get_cs_value(secondary, primary_target, E_primaries,
                                          E_secondaries)
         data[1] = data[1]/data[0]
     else:
-        return print('Primary kinetic energy '+E_trans(E_primaries) +
+        return print('Primary total energy '+E_trans(E_primaries) +
                      ' is not in range: '+E_trans(E_th_b)+' -- ' +
                      E_trans(E_th_t) +
                      ' avaliable for primary/target combination: ' +
@@ -385,7 +385,7 @@ def get_cross_section(secondary, primary_target, E_primaries=None,
         E_max = E_primaries.max()
         E_min = E_primaries.min()
         if E_th_b/E_min > 1.001 or E_max/E_th_t > 1.001:
-            return print('Primary kinetic energy is not in range: ' +
+            return print('Primary total energy is not in range: ' +
                           E_trans(E_th_b)+' -- '+E_trans(E_th_t) +
                           ' avaliable for primary/target combination: ' +
                           primary_target)
