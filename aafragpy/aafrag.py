@@ -63,15 +63,16 @@ def interpolate_sigma(E_primary, data, le_flag, E_secondary=None):
         def_bin_flag = 0
 
     log_E_i = np.log10(E_primary)
-    log_data = np.log10(data)
     log_E_sec = np.log10(E_sec)
 
-    uniq_log_E_i = np.unique(log_data[:, 0])
     uniq_E_i = np.unique(data[:, 0])
+
     if le_flag:
         u = (E_primary - uniq_E_i)
         idxl = np.abs(u).argsort(axis=0)[:2]
+        uniq_log_E_i = np.log10(uniq_E_i)
     else:
+        uniq_log_E_i = np.log10(uniq_E_i)
         u = (log_E_i - uniq_log_E_i)
         idxl = np.abs(u).argsort(axis=0)[:2]
 
@@ -89,8 +90,11 @@ def interpolate_sigma(E_primary, data, le_flag, E_secondary=None):
     cl2 = abs((log_E_i - uniq_log_E_i[idxl[1]])/(uniq_log_E_i[idxl[1]] -
                                                  uniq_log_E_i[idxl[0]]))
 
-    si1 = log_data[np.abs(log_data[:, 0] - uniq_log_E_i[idxl[0]]) < 1e-6]
-    si2 = log_data[np.abs(log_data[:, 0] - uniq_log_E_i[idxl[1]]) < 1e-6]
+    # Only log10 the selected blocks to avoid full log_data creation
+    si1_data = data[data[:, 0] == uniq_E_i[idxl[0]]]
+    si2_data = data[data[:, 0] == uniq_E_i[idxl[1]]]
+    si1 = np.log10(si1_data)
+    si2 = np.log10(si2_data)
     
     #get indices of the last inf in low energies
     inf_si1 = np.where(si1[:,2][si1[:,1]<8]==-np.inf)[0][-1]
@@ -412,13 +416,16 @@ def get_cross_section(secondary, primary_target, E_primaries=None,
                                                      le_flag, E_secondaries)
 
             if c == 0:
-                cs_matrix = new_data[1]
-                energy_primary = E_primary/1e9
+                cs_matrix_list = [new_data[1]]
+                energy_primary_list = [E_primary/1e9]
                 energy_secondary = new_data[0]
             else:
-                cs_matrix = np.vstack([cs_matrix, new_data[1]])
-                energy_primary = np.vstack([energy_primary, E_primary/1e9])
+                cs_matrix_list.append(new_data[1])
+                energy_primary_list.append(E_primary/1e9)
             c += 1
+
+        cs_matrix = np.array(cs_matrix_list)
+        energy_primary = np.array(energy_primary_list)
 
         cs_matrix = cs_matrix / energy_secondary
         
@@ -592,7 +599,7 @@ def get_spectrum(energy_primary, energy_secondary, cs_matrix, prim_spectrum):
     energy_primary (numpy ndarray): Vector of primary energies, GeV
     energy_secondary (numpy ndarray): Vector of secondary energies, GeV
     cs_matrix (numpy ndarray): Matrix of differential cross-section
-    nucl_spectrum (numpy ndarray): Primary spectrum
+    prim_spectrum (numpy ndarray): Primary spectrum
 
     Returns
     -------
@@ -600,19 +607,14 @@ def get_spectrum(energy_primary, energy_secondary, cs_matrix, prim_spectrum):
     Differential spectrum of secondary particles
 
     """
-    def integral(Y1, Y2, E1, E2):
-        INT = (Y2*E2-Y1*E1)/((np.log(Y2/Y1)/np.log(E2/E1)+1))
-        return INT
     if len(prim_spectrum.shape) == 2:
         prim_spectrum = prim_spectrum[:, 0]
-    E1 = energy_primary[:-1]
-    E2 = energy_primary[1:]
-    Y1 = (cs_matrix[:-1].T * prim_spectrum[:-1]).T
-    Y2 = (cs_matrix[1:].T * prim_spectrum[1:]).T
-    int_value = np.zeros(cs_matrix.shape[1])
-    for i, v in enumerate(E1):
-        int_temp = (integral(Y1[i], Y2[i], E1[i], E2[i]))
-        int_temp[np.isnan(int_temp)] = 0
-        int_value += int_temp
 
-    return int_value
+    E1 = energy_primary[:-1, np.newaxis]
+    E2 = energy_primary[1:, np.newaxis]
+    Y1 = cs_matrix[:-1] * prim_spectrum[:-1, np.newaxis]
+    Y2 = cs_matrix[1:] * prim_spectrum[1:, np.newaxis]
+
+    INT = (Y2*E2-Y1*E1)/((np.log(Y2/Y1)/np.log(E2/E1)+1))
+    INT[np.isnan(INT)] = 0
+    return np.sum(INT, axis=0)
