@@ -279,9 +279,12 @@ def get_cross_section(secondary, primary_target, E_primaries=None,
     E_primaries (int or float or list or tuple or numpy.ndarray): optional
         Vector of the primary particle energy (in GeV) of the size M.
         The default values are taken from the tables.
-    E_secondaries (int or float or list or tuple or numpy.ndarray): optiona
+    E_secondaries (int or float or list or tuple or numpy.ndarray): optional
         Vector of the secondary particle energy (in GeV) of the size N.
         The default values are taken from the tables.
+    extrapolate (str): Defines behavior if E_primaries is outside tabulated range.
+        Allowed inputs: 'raise' (raises ValueError), 'nan' (outputs np.nan array),
+        'interpolate' (linearly extrapolates log-log data from the bounds).
 
     Returns
     -------
