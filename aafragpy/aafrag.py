@@ -247,20 +247,58 @@ def get_cs_value(secondary, primary_target, E_primaries,
     2d numpy array (secondary differential cross-section, secondary energy)
 
     """
-    res = get_cross_section(secondary, primary_target, E_primaries, E_secondaries)
-    if res is None:
-        return None
-    cs_matrix, _, e_s = res
-    if cs_matrix.ndim == 2:
-        return np.array([cs_matrix[0], e_s])
-    return np.array([cs_matrix, e_s])
+    # primary = primary_target.split('-')[0]
+    # avaliable_primaries = ['p','He','C','Al','Fe']
+    # masses = [0.9385,3.7274,11.178,25.133,52.103]
+    # mass = masses[avaliable_primaries==primary]
+    # E_primary = mass + T_primaries
+
+    E_primaries = E_primaries * 1e9
+    try:
+        data_HE, data_LE, E_th_b, E_th_c, E_th_t = open_data_files(secondary,
+                                                               primary_target)
+    except TypeError:
+        return
+
+    if E_th_b/E_primaries < 1.001 and E_primaries/E_th_t < 1.001:
+        le_flag = 1
+        if E_primaries - E_th_c >= 9e-3:
+            le_flag = 0
+        if (E_secondaries is None):
+            data = interpolate_sigma(E_primaries, data_HE, le_flag)
+        else:
+            if type(E_secondaries) is not np.ndarray:
+                if np.isscalar(E_secondaries):
+                    E_secondaries = [E_secondaries]
+                E_secondaries = np.array(E_secondaries)
+            data = interpolate_sigma(E_primaries, data_HE, le_flag,
+                                     E_secondaries)
+        if le_flag == 1:
+            if (E_secondaries is None):
+                data = interpolate_sigma(E_primaries, data_LE, le_flag)
+            else:
+                if type(E_secondaries) is not np.ndarray:
+                    if np.isscalar(E_secondaries):
+                        E_secondaries = [E_secondaries]
+                    E_secondaries = np.array(E_secondaries)
+                data = interpolate_sigma(E_primaries, data_LE, le_flag,
+                                         E_secondaries)
+        data[1] = data[1]/data[0]
+    else:
+        return print('Primary total energy '+E_trans(E_primaries) +
+                     ' is not in range: '+E_trans(E_th_b)+' -- ' +
+                     E_trans(E_th_t) +
+                     ' avaliable for primary/target combination: ' +
+                     primary_target)
+
+    return np.array([data[1],data[0]])
 
 ###############################################################################
 ###############################################################################
 
 
 def get_cross_section(secondary, primary_target, E_primaries=None,
-                  E_secondaries=None, extrapolate='raise'):
+                  E_secondaries=None):
     """
     Reconstruсt cross-section values for given values of the total energy for
     primary and secondary particle combination.
@@ -346,78 +384,52 @@ def get_cross_section(secondary, primary_target, E_primaries=None,
 
         E_max = E_primaries.max()
         E_min = E_primaries.min()
+        if E_th_b/E_min > 1.001 or E_max/E_th_t > 1.001:
+            return print('Primary total energy is not in range: ' +
+                          E_trans(E_th_b)+' -- '+E_trans(E_th_t) +
+                          ' avaliable for primary/target combination: ' +
+                          primary_target)
+            noE_in_range = 1
+        else:
+            noE_in_range = 0
+            c = 0
+            for E_primary in E_primaries:
 
-        c = 0
-        for E_primary in E_primaries:
-            out_of_range = (E_th_b/E_primary > 1.001 or E_primary/E_th_t > 1.001)
+                if E_th_b/E_primary < 1.001 and E_primary/E_th_t < 1.001:
+                    le_flag = 1
+                    if E_primary - E_th_c >= 9e-3:
+                        le_flag = 0
 
-            if out_of_range:
-                if extrapolate == 'raise':
-                    raise ValueError('Primary total energy is not in range: ' +
-                                  E_trans(E_th_b)+' -- '+E_trans(E_th_t) +
-                                  ' avaliable for primary/target combination: ' +
-                                  primary_target)
-                elif extrapolate == 'nan':
-                    le_flag = 0
-                    if E_secondaries is None:
-                        E_sec = np.unique(data_HE[:, 1])
-                    else:
-                        if type(E_secondaries) is not np.ndarray:
-                            if np.isscalar(E_secondaries):
-                                E_secondaries = [E_secondaries]
-                            E_secondaries = np.array(E_secondaries)
-                        E_sec = E_secondaries * 1e9
-                    new_data = np.array([E_sec, np.full(len(E_sec), np.nan)])
-                    new_data[0] = new_data[0]/1e9
-                elif extrapolate == 'interpolate':
-                    le_flag = 0
                     if (E_secondaries is None):
-                        new_data = interpolate_sigma(E_primary, data_HE, le_flag)
+                        if le_flag == 1:
+                            new_data = interpolate_sigma(E_primary,
+                                                         data_LE, le_flag)
+                        else:
+                            new_data = interpolate_sigma(E_primary,
+                                                         data_HE, le_flag)
                     else:
                         if type(E_secondaries) is not np.ndarray:
                             if np.isscalar(E_secondaries):
                                 E_secondaries = [E_secondaries]
                             E_secondaries = np.array(E_secondaries)
-                        new_data = interpolate_sigma(E_primary, data_HE, le_flag, E_secondaries)
-                else:
-                    return print('Primary total energy is not in range: ' +
-                                  E_trans(E_th_b)+' -- '+E_trans(E_th_t) +
-                                  ' avaliable for primary/target combination: ' +
-                                  primary_target)
-            else:
-                le_flag = 1
-                if E_primary - E_th_c >= 9e-3:
-                    le_flag = 0
+                        if le_flag == 1:
+                            new_data = interpolate_sigma(E_primary, data_LE,
+                                                         le_flag, E_secondaries)
+                        else:
+                            new_data = interpolate_sigma(E_primary, data_HE,
+                                                         le_flag, E_secondaries)
 
-                if (E_secondaries is None):
-                    if le_flag == 1:
-                        new_data = interpolate_sigma(E_primary,
-                                                     data_LE, le_flag)
+                    if c == 0:
+                        cs_matrix = new_data[1]
+                        energy_primary = E_primary/1e9
+                        energy_secondary = new_data[0]
                     else:
-                        new_data = interpolate_sigma(E_primary,
-                                                     data_HE, le_flag)
-                else:
-                    if type(E_secondaries) is not np.ndarray:
-                        if np.isscalar(E_secondaries):
-                            E_secondaries = [E_secondaries]
-                        E_secondaries = np.array(E_secondaries)
-                    if le_flag == 1:
-                        new_data = interpolate_sigma(E_primary, data_LE,
-                                                     le_flag, E_secondaries)
-                    else:
-                        new_data = interpolate_sigma(E_primary, data_HE,
-                                                     le_flag, E_secondaries)
+                        cs_matrix = np.vstack([cs_matrix, new_data[1]])
+                        energy_primary = np.vstack([energy_primary, E_primary/1e9])
+                    c += 1
 
-            if c == 0:
-                cs_matrix = new_data[1]
-                energy_primary = E_primary/1e9
-                energy_secondary = new_data[0]
-            else:
-                cs_matrix = np.vstack([cs_matrix, new_data[1]])
-                energy_primary = np.vstack([energy_primary, E_primary/1e9])
-            c += 1
-
-        cs_matrix = cs_matrix / energy_secondary
+        if noE_in_range == 0:
+            cs_matrix = cs_matrix / energy_secondary
         
         if c == 1:
             energy_primary = np.array([energy_primary])
