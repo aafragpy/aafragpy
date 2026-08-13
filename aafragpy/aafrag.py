@@ -196,7 +196,11 @@ def open_data_files(secondary, primary_target):
 
     try:
         
-        data_HE = np.genfromtxt(AAFrag_path+'/Tables/'+name+'_04')
+        if os.path.exists(AAFrag_path+'/Tables/'+name+'_04.npz'):
+            data_HE = np.load(AAFrag_path+'/Tables/'+name+'_04.npz')['data']
+        else:
+            data_HE = np.genfromtxt(AAFrag_path+'/Tables/'+name+'_04')
+
         if data_col != 100:
             data_HE = data_HE[:, [0, 1, data_col]]
         else:
@@ -213,7 +217,11 @@ def open_data_files(secondary, primary_target):
 
     try:
 
-        data_LE = np.genfromtxt(AAFrag_path+'/Tables/'+name+'_04L')
+        if os.path.exists(AAFrag_path+'/Tables/'+name+'_04L.npz'):
+            data_LE = np.load(AAFrag_path+'/Tables/'+name+'_04L.npz')['data']
+        else:
+            data_LE = np.genfromtxt(AAFrag_path+'/Tables/'+name+'_04L')
+
         if data_col != 100:
             data_LE = data_LE[:, [0, 1, data_col]]
         else:
