@@ -6,7 +6,7 @@ Python implementation of the **AAFrag** secondary particle production model (bas
 
 ### Features
 
-* **Secondary Products:** Photons (γ), electrons and positrons (e⁺, e⁻), neutrinos (νₑ, ν̄ₑ, ν_μ, ν̄_μ, ν_all), nucleons (p, p̄, n, n̄), and light antinuclei (d̄, ³H̄e).
+* **Secondary Products:** Photons (γ), electrons and positrons (e±), neutrinos (ν_e, ν̄_e, ν_μ, ν̄_μ, ν_all), nucleons (p, p̄, n, n̄), and light antinuclei (d̄, ³Hē).
 * **Collision Systems:** p–p, p–He, He–p, He–He, heavy projectile ions (C, Al, Fe) on proton targets, and antiproton-induced channels (p̄–p, p̄–He).
 * **Broad Energy Range:** Tabulated interactions from kinematic thresholds (hundreds of MeV / low GeV) up to hundreds of PeV / EeV.
 * **Integrated Alternative Models:** Built-in parameterizations for p–p interactions from Kamae et al. (2006) and Kafexhiu et al. (2014).
@@ -29,9 +29,7 @@ A step-by-step walkthrough of the package API and spectral calculations is avail
 
 You can launch and run the interactive tutorial directly in Google Colab:
 
-<a href="https://colab.research.google.com/github/aafragpy/aafragpy/blob/npz-rewrite/aafragpy_tutorial.ipynb" target="_blank">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aafragpy/aafragpy/blob/main/aafragpy_tutorial.ipynb)
 
 ---
 
