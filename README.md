@@ -29,7 +29,7 @@ A step-by-step walkthrough of the package API and spectral calculations is avail
 
 You can launch and run the interactive tutorial directly in Google Colab:
 
-<a href="https://colab.research.google.com/github/aafragpy/aafragpy/blob/main/aafragpy_tutorial.ipynb" target="_blank">
+<a href="https://colab.research.google.com/github/<your-username>/aafragpy/blob/npz-rewrite/aafragpy_tutorial.ipynb" target="_blank">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
