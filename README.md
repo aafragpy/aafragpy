@@ -6,10 +6,10 @@ Python implementation of the **AAFrag** secondary particle production model (bas
 
 ### Features
 
-* **Secondary Products:** Photons ($\gamma$), electrons and positrons ($e^\pm$), neutrinos ($\nu_e, \bar{\nu}_e, \nu_\mu, \bar{\nu}_\mu, \nu_{\mathrm{all}}$), nucleons ($p, \bar{p}, n, \bar{n}$), and light antinuclei ($\bar{d}, {}^3\overline{\text{He}}$).
+* **Secondary Products:** Photons ($\gamma$), electrons and positrons ($e^\pm$), neutrinos ($\nu_e$, $\bar{\nu}_e$, $\nu_\mu$, $\bar{\nu}_\mu$, $\nu_{\mathrm{all}}$), nucleons ($p, \bar{p}, n, \bar{n}$), and light antinuclei ($\bar{d}, {}^3\overline{\text{He}}$).
 * **Collision Systems:** $p\text{--}p$, $p\text{--}\text{He}$, $\text{He--}p$, $\text{He--}\text{He}$, heavy projectile ions ($\text{C}, \text{Al}, \text{Fe}$) on proton targets, and antiproton-induced channels ($\bar{p}\text{--}p, \bar{p}\text{--}\text{He}$).
-* **Broad Energy Range:** Tabulated interactions from kinematic thresholds (hundreds of MeV / low GeV) up to hundreds of PeV / EeV.
-* **Integrated Low-Energy Models:** Built-in parameterizations for $p\text{--}p$ interactions from Kamae et al. (2006) and Kafexhiu et al. (2014).
+* **Broad Energy Range:** Tabulated interactions from kinematic thresholds (low GeV) up to hundreds of PeV / EeV.
+* **Integrated Alternative Models:** Built-in parameterizations for $p\text{--}p$ interactions from Kamae et al. (2006) and Kafexhiu et al. (2014).
 
 ---
 
@@ -58,9 +58,9 @@ You can launch and run the interactive tutorial directly in your browser via Bin
 
 ---
 
-### Additional References for Low-Energy Models
+### Additional References for Alternative Models
 
-If you utilize the optional low-energy parameterizations included in the package, please also cite the respective source papers:
+If you utilize the optional alternative models included in the package, please also cite the respective source papers:
 
 * **Kamae et al. (2006) + Erratum:**  
   * T. Kamae, N. Karlsson, T. Mizuno, T. Abe, and T. Koi,  
