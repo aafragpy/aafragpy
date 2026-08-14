@@ -6,7 +6,7 @@ Python implementation of the **AAFrag** secondary particle production model (bas
 
 ### Features
 
-* **Secondary Products:** Photons ($\gamma$), electrons and positrons ($e^\pm$), neutrinos ($\nu_e$, $\bar{\nu}_e$, $\nu_\mu$, $\bar{\nu}_\mu$, $\nu_{\mathrm{all}}$), nucleons ($p, \bar{p}, n, \bar{n}$), and light antinuclei ($\bar{d}, {}^3\overline{\text{He}}$).
+* **Secondary Products:** Photons ($\gamma$), electrons and positrons ($e^\pm$), neutrinos ($\nu_e, \bar{\nu}_e, \nu_\mu, \bar{\nu}_\mu, \nu_\text{all}$), nucleons ($p, \bar{p}, n, \bar{n}$), and light antinuclei ($\bar{d}, {}^3\overline{\text{He}}$).
 * **Collision Systems:** $p\text{--}p$, $p\text{--}\text{He}$, $\text{He--}p$, $\text{He--}\text{He}$, heavy projectile ions ($\text{C}, \text{Al}, \text{Fe}$) on proton targets, and antiproton-induced channels ($\bar{p}\text{--}p, \bar{p}\text{--}\text{He}$).
 * **Broad Energy Range:** Tabulated interactions from kinematic thresholds (low GeV) up to hundreds of PeV / EeV.
 * **Integrated Alternative Models:** Built-in parameterizations for $p\text{--}p$ interactions from Kamae et al. (2006) and Kafexhiu et al. (2014).
@@ -27,9 +27,9 @@ pip install aafragpy
 
 A step-by-step walkthrough of the package API and spectral calculations is available in the Jupyter Notebook tutorial.
 
-You can launch and run the interactive tutorial directly in your browser via Binder:
+You can launch and run the interactive tutorial directly in your browser via Google Colab:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aafragpy/aafragpy/HEAD?filepath=aafragpy_tutorial.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aafragpy/aafragpy/blob/main/aafragpy_tutorial.ipynb)
 
 ---
 
