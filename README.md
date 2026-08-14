@@ -6,10 +6,10 @@ Python implementation of the **AAFrag** secondary particle production model (bas
 
 ### Features
 
-* **Secondary Products:** Photons ($\gamma$), electrons and positrons ($e^\pm$), neutrinos ($\nu_e, \bar{\nu}_e, \nu_\mu, \bar{\nu}_\mu, \nu_\text{all}$), nucleons ($p, \bar{p}, n, \bar{n}$), and light antinuclei ($\bar{d}, {}^3\overline{\text{He}}$).
-* **Collision Systems:** $p\text{--}p$, $p\text{--}\text{He}$, $\text{He--}p$, $\text{He--}\text{He}$, heavy projectile ions ($\text{C}, \text{Al}, \text{Fe}$) on proton targets, and antiproton-induced channels ($\bar{p}\text{--}p, \bar{p}\text{--}\text{He}$).
-* **Broad Energy Range:** Tabulated interactions from kinematic thresholds (low GeV) up to hundreds of PeV / EeV.
-* **Integrated Alternative Models:** Built-in parameterizations for $p\text{--}p$ interactions from Kamae et al. (2006) and Kafexhiu et al. (2014).
+* **Secondary Products:** Photons (γ), electrons and positrons (e⁺, e⁻), neutrinos (νₑ, ν̄ₑ, ν_μ, ν̄_μ, ν_all), nucleons (p, p̄, n, n̄), and light antinuclei (d̄, ³H̄e).
+* **Collision Systems:** p–p, p–He, He–p, He–He, heavy projectile ions (C, Al, Fe) on proton targets, and antiproton-induced channels (p̄–p, p̄–He).
+* **Broad Energy Range:** Tabulated interactions from kinematic thresholds (hundreds of MeV / low GeV) up to hundreds of PeV / EeV.
+* **Integrated Alternative Models:** Built-in parameterizations for p–p interactions from Kamae et al. (2006) and Kafexhiu et al. (2014).
 
 ---
 
@@ -27,9 +27,11 @@ pip install aafragpy
 
 A step-by-step walkthrough of the package API and spectral calculations is available in the Jupyter Notebook tutorial.
 
-You can launch and run the interactive tutorial directly in your browser via Google Colab:
+You can launch and run the interactive tutorial directly in Google Colab:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aafragpy/aafragpy/blob/npz-rewrite/aafragpy_tutorial.ipynb)
+<a href="https://colab.research.google.com/github/aafragpy/aafragpy/blob/main/aafragpy_tutorial.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 ---
 
@@ -64,13 +66,13 @@ If you utilize the optional alternative models included in the package, please a
 
 * **Kamae et al. (2006) + Erratum:**  
   * T. Kamae, N. Karlsson, T. Mizuno, T. Abe, and T. Koi,  
-    *“Parameterization of $\gamma$, $e^\pm$, and Neutrino Spectra Produced by $p\text{-}p$ Interaction in Astronomical Environments,”*  
+    *“Parameterization of γ, e±, and Neutrino Spectra Produced by p-p Interaction in Astronomical Environments,”*  
     [Astrophys. J. 647, 692–708 (2006)](https://doi.org/10.1086/505189), [arXiv:astro-ph/0605581](https://arxiv.org/abs/astro-ph/0605581).  
   * T. Kamae, N. Karlsson, T. Mizuno, T. Abe, and T. Koi,  
-    *“Erratum: 'Parameterization of $\gamma$, $e^\pm$, and Neutrino Spectra Produced by $p\text{-}p$ Interaction in Astronomical Environments',”*  
+    *“Erratum: 'Parameterization of γ, e±, and Neutrino Spectra Produced by p-p Interaction in Astronomical Environments',”*  
     [Astrophys. J. 662, 779 (2007)](https://doi.org/10.1086/519449).
 
 * **Kafexhiu et al. (2014):**  
   E. Kafexhiu, F. Aharonian, A. M. Taylor, and G. S. Vila,  
-  *“Parametrization of gamma-ray production cross-sections for $p\text{-}p$ interactions in a broad proton energy range from the kinematic threshold to PeV energies,”*  
+  *“Parametrization of gamma-ray production cross-sections for p-p interactions in a broad proton energy range from the kinematic threshold to PeV energies,”*  
   [Phys. Rev. D 90, 123014 (2014)](https://doi.org/10.1103/PhysRevD.90.123014), [arXiv:1406.7369](https://arxiv.org/abs/1406.7369).
