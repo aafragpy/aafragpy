@@ -203,7 +203,7 @@ def F_gamma_Kafexhiu2014 (T_p,E_g,model):
     def F(T_p,E_g):
         C = Lambda * m_pi / Y_g_max
         func = np.power(1-np.power(X_g,alpha),beta ) / np.power((1+X_g/C), gamma )
-        func = np.where(E_g<=E_g_max,func,np.nan)
+        func = np.where(E_g<=E_g_max,func,0)
         return func
     
     if T_p <=1e6:
