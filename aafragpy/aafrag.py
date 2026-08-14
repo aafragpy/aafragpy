@@ -336,8 +336,8 @@ def get_cross_section(secondary, primary_target, E_primaries=None,
                 cs_matrix[i, 0] = 0.0
             continue
 
-        min_a1_x, max_a1_x = min(a1_x), max(a1_x)
-        min_a2_x, max_a2_x = min(a2_x), max(a2_x)
+        min_a1_x, max_a1_x = a1_x[0], a1_x[-1]
+        min_a2_x, max_a2_x = a2_x[0], a2_x[-1]
 
         new_a1_x = np.linspace(min_a1_x, max_a1_x, 1000)
         new_a2_x = np.linspace(min_a2_x, max_a2_x, 1000)
@@ -349,11 +349,11 @@ def get_cross_section(secondary, primary_target, E_primaries=None,
         midy = cl2 * new_a1_y + cl1 * new_a2_y
 
         filter_energies = (
-            (log_req_Es > min(min_a1_x, min_a2_x) - 1e-5) &
-            (log_req_Es < max(max_a1_x, max_a2_x) + 1e-5) &
+            (log_req_Es > (min_a1_x if min_a1_x < min_a2_x else min_a2_x) - 1e-5) &
+            (log_req_Es < (max_a1_x if max_a1_x > max_a2_x else max_a2_x) + 1e-5) &
             (log_req_Es <= log_req_E + 1e-5) &
-            (log_req_Es <= max(midx) + 1e-5) &
-            (log_req_Es >= min(midx) - 1e-5)
+            (log_req_Es <= midx[-1] + 1e-5) &
+            (log_req_Es >= midx[0] - 1e-5)
         )
 
         sigma_final = np.full(len(req_Es), -np.inf)
