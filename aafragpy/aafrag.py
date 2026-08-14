@@ -19,6 +19,10 @@ warnings.filterwarnings("ignore", message="overflow encountered in exp")
 m_p = 0.938272
 AAFrag_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Tables')
 
+
+# Universal default secondary energy grid (17 decades, 100 pts/dec, exact 0.01 dex step)
+# Implemented for backward compatability with the previous code
+MASTER_E_SECONDARIES = np.logspace(-5, 12, 1701)
 ###############################################################################
 ###############################################################################
 
@@ -229,9 +233,16 @@ def get_cross_section(secondary, primary_target, E_primaries=None,
         req_Ep = E_primaries * 1e9
 
     if E_secondaries is None:
-        default_sec = True
-        req_Es = Es_grid
-        E_secondaries = Es_grid / 1e9
+        if secondary in ['ad', 'ah']:
+            # Antinuclei have specialized discrete grids
+            default_sec = True
+            req_Es = Es_grid
+            E_secondaries = Es_grid / 1e9
+        else:
+            # Universal master grid: 10^-5 to 10^12 GeV (1701 points, 100 pts/decade)
+            default_sec = False
+            E_secondaries = np.logspace(-5, 12, 1701)
+            req_Es = E_secondaries * 1e9
     else:
         default_sec = False
         E_secondaries = np.atleast_1d(E_secondaries).flatten()
