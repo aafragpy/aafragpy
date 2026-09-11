@@ -169,14 +169,14 @@ def get_cs_value(secondary, primary_target, E_primaries, E_secondaries=None):
         return None
     cs_matrix, _, e_s = res
 
-    # 挤压掉大小为 1 的初级能量维度，确保得到 (N_Es,) 或 (M_Ep, N_Es)
+    # Squeeze out the primary energy dimension of size 1 to ensure (N_Es,) or (M_Ep, N_Es)
     cs_squeezed = np.squeeze(cs_matrix)
 
-    # 如果只有一个初级能量，返回 (2, N) 形状的数组 [dSigma/dE, E_secondary]
+    # If there is only one primary energy, return an array of shape (2, N) [dSigma/dE, E_secondary]
     if cs_squeezed.ndim == 1:
         return np.vstack([cs_squeezed, e_s])
 
-    # 如果有多个初级能量，返回截面矩阵与能量向量
+    # If there are multiple primary energies, return the cross-section matrix and energy vector
     return cs_squeezed, e_s
 
 
