@@ -168,9 +168,16 @@ def get_cs_value(secondary, primary_target, E_primaries, E_secondaries=None):
     if res is None:
         return None
     cs_matrix, _, e_s = res
-    if cs_matrix.ndim == 2:
-        return np.array([cs_matrix[0], e_s])
-    return np.array([cs_matrix, e_s])
+
+    # Squeeze out the primary energy dimension of size 1 to ensure (N_Es,) or (M_Ep, N_Es)
+    cs_squeezed = np.squeeze(cs_matrix)
+
+    # If there is only one primary energy, return an array of shape (2, N) [dSigma/dE, E_secondary]
+    if cs_squeezed.ndim == 1:
+        return np.vstack([cs_squeezed, e_s])
+
+    # If there are multiple primary energies, return the cross-section matrix and energy vector
+    return cs_squeezed, e_s
 
 
 ###############################################################################
